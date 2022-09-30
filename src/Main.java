@@ -19,17 +19,16 @@ public class Main {
         codeList.add("KIX");
 
         System.out.println("--<国内空港の3レターコード集>-----");
-        for (Map.Entry<String, String> entry : airportCodes.entrySet()) {
-            System.out.print("  " + entry.getKey() + " : ");
-            System.out.println(entry.getValue());
-        }
+        airportCodes.keySet().stream()
+                .peek(airportCode -> System.out.print("  " + airportCode + " : "))
+                .map(airportCodes::get)
+                .forEach(System.out::println);
         System.out.println("-----------------------------");
 
         System.out.println(System.getProperty("line.separator") + "上記のコード集から空港名を調べる");
-        for (String airportCode : codeList) {
-            System.out.print("  " + airportCode + " : ");
-            System.out.println(airportCodes.getOrDefault(airportCode, "該当する空港は登録されていません"));
-        }
-
+        codeList.stream()
+                .peek(airportCode -> System.out.print("  " + airportCode + " : "))
+                .map(airportCode -> airportCodes.getOrDefault(airportCode, "該当する空港は登録されていません"))
+                .forEach(System.out::println);
     }
 }
