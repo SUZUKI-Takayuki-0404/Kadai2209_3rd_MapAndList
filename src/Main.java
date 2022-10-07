@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,5 +33,6 @@ public class Main {
                 .peek(airportCode -> System.out.print("  " + airportCode + " : "))
                 .map(airportCode -> airportCodes.getOrDefault(airportCode, "該当する空港は登録されていません"))
                 .forEach(System.out::println);
+        
     }
 }
