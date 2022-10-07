@@ -33,6 +33,6 @@ public class Main {
                 .peek(airportCode -> System.out.print("  " + airportCode + " : "))
                 .map(airportCode -> airportCodes.getOrDefault(airportCode, "該当する空港は登録されていません"))
                 .forEach(System.out::println);
-        
+
     }
 }
